@@ -29,6 +29,7 @@ api_generator(int curve, size_t *len)
 {
 	switch (curve) {
 	case BR_EC_secp256r1:
+	case BR_EC_secp384r1:
 		return br_ec_p256_m15.generator(curve, len);
 	case BR_EC_curve25519:
 		return br_ec_c25519_m15.generator(curve, len);
@@ -42,6 +43,7 @@ api_order(int curve, size_t *len)
 {
 	switch (curve) {
 	case BR_EC_secp256r1:
+	case BR_EC_secp384r1:
 		return br_ec_p256_m15.order(curve, len);
 	case BR_EC_curve25519:
 		return br_ec_c25519_m15.order(curve, len);
@@ -55,6 +57,7 @@ api_xoff(int curve, size_t *len)
 {
 	switch (curve) {
 	case BR_EC_secp256r1:
+	case BR_EC_secp384r1:
 		return br_ec_p256_m15.xoff(curve, len);
 	case BR_EC_curve25519:
 		return br_ec_c25519_m15.xoff(curve, len);
@@ -83,6 +86,7 @@ api_mulgen(unsigned char *R,
 {
 	switch (curve) {
 	case BR_EC_secp256r1:
+	case BR_EC_secp384r1:
 		return br_ec_p256_m15.mulgen(R, x, xlen, curve);
 	case BR_EC_curve25519:
 		return br_ec_c25519_m15.mulgen(R, x, xlen, curve);
@@ -98,6 +102,7 @@ api_muladd(unsigned char *A, const unsigned char *B, size_t len,
 {
 	switch (curve) {
 	case BR_EC_secp256r1:
+	case BR_EC_secp384r1:
 		return br_ec_p256_m15.muladd(A, B, len,
 			x, xlen, y, ylen, curve);
 	case BR_EC_curve25519:

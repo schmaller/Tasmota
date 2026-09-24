@@ -195,7 +195,7 @@ void WiFiClientSecure_light::_clear() {
   _recvapp_buf = nullptr;
   _recvapp_len = 0;
   _insecure = false;  // set to true when calling setPubKeyFingerprint()
-  _rsa_only = true;   // for now we disable ECDSA by default
+  _rsa_only = false;   // for now we disable ECDSA by default
   _fingerprint_any = true; // by default accept all fingerprints
   _fingerprint1 = nullptr;
   _fingerprint2 = nullptr;

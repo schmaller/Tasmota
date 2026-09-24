@@ -33,8 +33,7 @@
 #endif
 #endif
 
-#ifndef BR_MAX_EC_SIZE
+#undef  BR_MAX_EC_SIZE
 #define BR_MAX_EC_SIZE 384      // max 384 bits EC keys (required for P-384 certificates, ex: Letsencrypt ECDSA)
-#endif
 
 #endif

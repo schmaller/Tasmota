@@ -180,9 +180,9 @@
 #define MQTT_INDEX_SEPARATOR   false             // [SetOption64] Enable "_" instead of "-" as sensor index separator
 #define MQTT_TUYA_RECEIVED     false             // [SetOption66] Enable TuyaMcuReceived messages over Mqtt
 #define MQTT_ONLY_JSON_OUTPUT  false             // [SetOption90] Disable non-json messages
-#define MQTT_TLS_ENABLED       false             // [SetOption103] Enable TLS mode
+#define MQTT_TLS_ENABLED       true              // [SetOption103] Enable TLS mode
 #define MQTT_TLS_FINGERPRINT   false             // [SetOption132] Force TLS fingerprint validation instead of CA
-#define MQTT_TLS_ECDSA         false             // [SetOption165] Enable TLS ECDSA validation in addition to RSA, false by default but automatically set to 'true' in case of a cipher error '296'
+#define MQTT_TLS_ECDSA         true             // [SetOption165] Enable TLS ECDSA validation in addition to RSA, false by default but automatically set to 'true' in case of a cipher error '296'
 
 // -- HTTP ----------------------------------------
 #define WEB_SERVER             2                 // [WebServer] Web server (0 = Off, 1 = Start as User, 2 = Start as Admin)
@@ -471,8 +471,8 @@
 
 // -- MQTT - TLS - AWS IoT ------------------------
 // Using TLS starting with version v6.5.0.16 compilation will only work using Core 2.4.2 and 2.5.2. No longer supported: 2.3.0
-//#define USE_MQTT_TLS                             // Use TLS for MQTT connection (+34.5k code, +7.0k mem and +4.8k additional during connection handshake)
- #define USE_MQTT_TLS_ECDSA                     // (ESP8266 only, always on for ESP32) enable ECDSA in addition to RSA (+11.5k code)
+#define USE_MQTT_TLS                             // Use TLS for MQTT connection (+34.5k code, +7.0k mem and +4.8k additional during connection handshake)
+#define USE_MQTT_TLS_ECDSA                     // (ESP8266 only, always on for ESP32) enable ECDSA in addition to RSA (+11.5k code)
 //  #define USE_MQTT_TLS_CA_CERT                   // [DEPRECATED] Now TLS supports dual mode using SetOption132 - this flag is now ignored
 //  #define USE_MQTT_AWS_IOT_LIGHT                 // Enable MQTT for AWS IoT in light mode, with user/password instead of private certificate
 //  #define USE_MQTT_CLIENT_CERT                   // Enable MQTT with custom client certificate - requires a private key (+11.9k code, +0.4k mem)
@@ -518,8 +518,9 @@
   #define WEB_PORT             80                // Web server Port for User and Admin mode
   #define WEB_USERNAME         "admin"           // Web server Admin mode user name
 //  #define DISABLE_REFERER_CHK                     // [SetOption128] Disable HTTP API
-  #define USE_ENHANCED_GUI_WIFI_SCAN             // Enable Wi-Fi scan output with BSSID (+0k5 code)
-  #define USE_WEB_STATUS_LINE                      // Enable upper status line in web UI (+0k5 code)
+ // dev@schmaller.de
+// #define USE_ENHANCED_GUI_WIFI_SCAN             // Enable Wi-Fi scan output with BSSID (+0k5 code)
+//  #define USE_WEB_STATUS_LINE                      // Enable upper status line in web UI (+0k5 code)
 //    #define USE_WEB_STATUS_LINE_WIFI               // Enable upper left wifi indicator in main page (+0k5 code)
 //    #define USE_WEB_STATUS_LINE_HEAP               // Enable upper left display of free heap memory (+0k1 code)
 //  #define USE_WEBSEND_RESPONSE                   // Enable command WebSend response message (+1k code)
@@ -528,21 +529,21 @@
 //  #define USE_GPIO_VIEWER                        // Enable GPIO Viewer to see realtime GPIO states (+6k code)
     #define GV_USE_ESPINFO                       // Add ESP8266 info (+2k1 code)
 //    #define GV_SAMPLING_INTERVAL  100            // [GvSampling] milliseconds - Use Tasmota Scheduler (100) or Ticker (20..99,101..1000)
-  #define USE_EMULATION_HUE                      // Enable Hue Bridge emulation for Alexa (+14k code, +2k mem common)
-  #define USE_EMULATION_WEMO                     // Enable Belkin WeMo emulation for Alexa (+6k code, +2k mem common)
+//  #define USE_EMULATION_HUE                      // Enable Hue Bridge emulation for Alexa (+14k code, +2k mem common)
+//  #define USE_EMULATION_WEMO                     // Enable Belkin WeMo emulation for Alexa (+6k code, +2k mem common)
 //  #define USE_EMULATION_SHELLY                   // (ESP32 only) Enable Shelly emulation (+8k code)
   // #define USE_CCLOADER                           // Enable CCLoader FW upgrade tool (for CC25xx devices)
 
 // -- mDNS ----------------------------------------
 //#define USE_DISCOVERY                            // Enable mDNS for the following services (+8k code or +23.5k code with core 2_5_x, +0.3k mem)
-  #define WEBSERVER_ADVERTISE                    // Provide access to webserver by name <Hostname>.local/
+//  #define WEBSERVER_ADVERTISE                    // Provide access to webserver by name <Hostname>.local/
   // #define MQTT_HOST_DISCOVERY                    // Find MQTT host server (overrides MQTT_HOST if found) - disabled by default because it causes blocked repeated 3000ms pauses
 
 // -- Time ----------------------------------------
-#define USE_TIMERS                               // Add support for up to 16 timers (+2k2 code)
-  #define USE_TIMERS_WEB                         // Add timer webpage support (+4k5 code)
-  #define USE_SUNRISE                            // Add support for Sunrise and sunset tools (+16k)
-    #define SUNRISE_DAWN_ANGLE DAWN_NORMAL       // Select desired Dawn Angle from (DAWN_NORMAL, DAWN_CIVIL, DAWN_NAUTIC, DAWN_ASTRONOMIC)
+//#define USE_TIMERS                               // Add support for up to 16 timers (+2k2 code)
+// #define USE_TIMERS_WEB                         // Add timer webpage support (+4k5 code)
+// #define USE_SUNRISE                            // Add support for Sunrise and sunset tools (+16k)
+#define SUNRISE_DAWN_ANGLE DAWN_NORMAL       // Select desired Dawn Angle from (DAWN_NORMAL, DAWN_CIVIL, DAWN_NAUTIC, DAWN_ASTRONOMIC)
 
 // -- Ping ----------------------------------------
 //  #define USE_PING                                 // Enable Ping command (+2k code)
@@ -565,12 +566,12 @@
 //#define USER_BACKLOG "<Any command separated by a semicolon (;)>"  // Add commands executed at firmware load or when command reset is executed
 
 // -- Optional modules ----------------------------
-#define ROTARY_V1                                // Add support for Rotary Encoder as used in MI Desk Lamp (+0k8 code)
-  #define ROTARY_MAX_STEPS     10                // Rotary step boundary
-#define USE_SONOFF_RF                            // Add support for Sonoff Rf Bridge (+3k2 code)
+//#define ROTARY_V1                                // Add support for Rotary Encoder as used in MI Desk Lamp (+0k8 code)
+//  #define ROTARY_MAX_STEPS     10                // Rotary step boundary
+// #define USE_SONOFF_RF                            // Add support for Sonoff Rf Bridge (+3k2 code)
 //  #define FIX_JSON_HEXADECIMAL                   // Add "0x" as prefix to hexadecimal value (disabled for legacy)
   #define USE_RF_FLASH                           // Add support for flashing the EFM8BB1 chip on the Sonoff RF Bridge. C2CK must be connected to GPIO4, C2D to GPIO5 on the PCB (+2k7 code)
-#define USE_SONOFF_SC                            // Add support for Sonoff Sc (+1k1 code)
+// #define USE_SONOFF_SC                            // Add support for Sonoff Sc (+1k1 code)
 #define USE_TUYA_MCU                             // Add support for Tuya Serial MCU
   #define TUYA_DIMMER_ID       0                 // Default dimmer Id
   #define USE_TUYA_TIME                          // Add support for Set Time in Tuya MCU

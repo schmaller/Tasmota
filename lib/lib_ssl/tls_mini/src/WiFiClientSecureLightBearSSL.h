@@ -85,7 +85,7 @@ class WiFiClientSecure_light : public WiFiClient {
       _fingerprint2 = f2;
       _fingerprint_any = f_any;
       _insecure = true;
-      _rsa_only = true;     // if fingerprint, we limit to RSA only
+      _rsa_only = false;     // if fingerprint, we limit to RSA only
     }
     void setRSAOnly(bool rsa_only) {
       _rsa_only = rsa_only;

@@ -180,9 +180,11 @@
 // ---- Aktive Features -------------------------------------------------------
 
 // KNX Support
-#ifndef USE_KNX
-#define USE_KNX
-#endif
+// dev@schmaller.de 
+// #ifndef USE_KNX
+// #define USE_KNX
+// #endif
+
 
 // Script & SML - Kernfunktionalität für Smartmeter-Auslesung
 #ifndef USE_SCRIPT
@@ -200,17 +202,22 @@
 #ifndef USE_SCRIPT_WEB_DISPLAY
 #define USE_SCRIPT_WEB_DISPLAY
 #endif
-#define USE_GOOGLE_CHARTS
-#define LARGE_ARRAYS
+// dev@schmaller.de 
+// #define USE_GOOGLE_CHARTS
+// #define LARGE_ARRAYS
 
 // Prometheus Metrics Endpoint
-#ifndef USE_PROMETHEUS
-#define USE_PROMETHEUS
-#endif
+// dev@schmaller.de 
+// #ifndef USE_PROMETHEUS
+// #define USE_PROMETHEUS
+// #endif
+
 
 // Home Assistant Integration
-#define USE_HOME_ASSISTANT
-#define USE_WEBCLIENT_HTTPS
+// dev@schmaller.de 
+// #define USE_HOME_ASSISTANT
+// #define USE_WEBCLIENT_HTTPS
+
 
 // SML Auth-Key Support (für Zähler die Authentifizierung benötigen)
 #define USE_SML_AUTHKEY
@@ -239,6 +246,12 @@
 
   // Skript wird komprimiert in Settings->rules[0] gespeichert (Standard-Tasmota-Verhalten)
   // Kompatibel mit Standard-Tasmota-Images, kein Sonder-Flash-Sektor.
+
+  // dev@schmaller.de
+  #define USE_MQTT_TLS                             // Use TLS for MQTT connection (+34.5k code, +7.0k mem and +4.8k additional during connection handshake)
+  #define MQTT_TLS_ENABLED       true              // [SetOption103] Enable TLS mode (requires TLS version)
+  // #define USE_MQTT_TLS_CA_CERT                   // Force full CA validation instead of fingerprints, slower, but simpler to use.  (+2.2k code, +1.9k mem during connection handshake)
+
 
 #endif // WATTWAECHTER_WIFI_USB
 
