@@ -3,8 +3,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Released]
 
-<<<<<<< HEAD
-=======
 ## [15.6.0.1]
 ### Added
 - Support for GUI tooltip on touch media like phones and tablets
@@ -45,7 +43,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Released]
 
->>>>>>> refs/remotes/schmaller/wattwaechter
 ## [15.6.0] 20260825
 - Release Sylvie
 
